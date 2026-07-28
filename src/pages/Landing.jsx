@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
 import { HandCoins, TrendingUp, Users, UserX, CalendarDays, Images } from 'lucide-react'
 import DashboardCarousel from '../components/DashboardCarousel.jsx'
 import StatCard from '../components/StatCard.jsx'
