@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: 'Donations', to: '/donations' },
   { label: 'Events', to: '/events' },
   { label: 'Gallery', to: '/gallery' },
+  { label: 'Volunteers', to: '/volunteers' },
 ]
 
 function ModakLogo() {

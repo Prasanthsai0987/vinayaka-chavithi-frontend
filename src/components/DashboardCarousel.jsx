@@ -17,12 +17,12 @@ import {
 const CARDS = [
   { key: 'donations', label: 'Donations', desc: 'Track contributions & receipts', icon: HandCoins, to: '/donations', gradient: 'from-orange-500 to-amber-500' },
   { key: 'events', label: 'Events', desc: 'Plan the festival schedule', icon: CalendarDays, to: '/events', gradient: 'from-rose-500 to-orange-500' },
-  { key: 'images', label: 'Images', desc: 'Upload festival moments', icon: Images, to: '/gallery', gradient: 'from-amber-500 to-yellow-500' },
-  { key: 'expenses', label: 'Expenses', desc: 'Monitor committee spends', icon: Receipt, to: '/donations', gradient: 'from-red-500 to-rose-600' },
-  { key: 'volunteers', label: 'Volunteers', desc: 'Coordinate helping hands', icon: Users, to: '/events', gradient: 'from-orange-600 to-red-500' },
+  // { key: 'images', label: 'Images', desc: 'Upload festival moments', icon: Images, to: '/gallery', gradient: 'from-amber-500 to-yellow-500' },
+  // { key: 'expenses', label: 'Expenses', desc: 'Monitor committee spends', icon: Receipt, to: '/donations', gradient: 'from-red-500 to-rose-600' },
+  { key: 'volunteers', label: 'Volunteers', desc: 'Coordinate helping hands', icon: Users, to: '/volunteers', gradient: 'from-orange-600 to-red-500' },
   { key: 'gallery', label: 'Gallery', desc: 'Browse past celebrations', icon: GalleryHorizontalEnd, to: '/gallery', gradient: 'from-yellow-500 to-orange-500' },
-  { key: 'announcements', label: 'Announcements', desc: 'Share updates with everyone', icon: Megaphone, to: '/events', gradient: 'from-amber-600 to-red-600' },
-  { key: 'about', label: 'About Festival', desc: 'Story & significance', icon: Info, to: '/', gradient: 'from-red-600 to-maroon-600' },
+  // { key: 'announcements', label: 'Announcements', desc: 'Share updates with everyone', icon: Megaphone, to: '/events', gradient: 'from-amber-600 to-red-600' },
+  { key: 'about', label: 'About Festival', desc: 'Story & significance', icon: Info, to: '/about', gradient: 'from-red-600 to-maroon-600' },  
 ]
 
 // How many cards are visible at once, per breakpoint (matches the CSS below)

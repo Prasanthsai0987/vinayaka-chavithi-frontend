@@ -6,6 +6,9 @@ import Landing from './pages/Landing.jsx'
 import Donations from './pages/Donations.jsx'
 import Events from './pages/Events.jsx'
 import Gallery from './pages/Gallery.jsx'
+import Volunteers from './pages/Volunteers.jsx'
+import AboutFestival from './pages/AboutFestival.jsx'
+import AccessGate from './components/AccessGate.jsx'
 
 function PageWrapper({ children }) {
   return (
@@ -38,9 +41,11 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<PageWrapper><Landing /></PageWrapper>} />
-            <Route path="/donations" element={<PageWrapper><Donations /></PageWrapper>} />
+            <Route path="/donations" element={<PageWrapper><AccessGate><Donations /></AccessGate></PageWrapper>} />
             <Route path="/events" element={<PageWrapper><Events /></PageWrapper>} />
             <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
+            <Route path="/volunteers" element={<PageWrapper><Volunteers /></PageWrapper>} />
+            <Route path="/about" element={<PageWrapper><AboutFestival /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>
