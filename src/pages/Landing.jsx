@@ -42,12 +42,19 @@ export default function Landing() {
               devotee informed — with the warmth of tradition and the ease of modern tools.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="/donations" className="px-6 py-3 rounded-xl bg-white text-maroon-700 font-semibold shadow-lg hover:shadow-glow transition-shadow">
+              <Link
+                to="/donations"
+                className="px-6 py-3 rounded-xl bg-white text-maroon-700 font-semibold shadow-lg hover:shadow-glow transition-shadow"
+              >
                 Manage Donations
-              </a>
-              <a href="/events" className="px-6 py-3 rounded-xl bg-white/10 border border-white/30 font-semibold hover:bg-white/20 transition-colors">
+              </Link>
+
+              <Link
+                to="/events"
+                className="px-6 py-3 rounded-xl bg-white/10 border border-white/30 font-semibold hover:bg-white/20 transition-colors"
+              >
                 View Events
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
