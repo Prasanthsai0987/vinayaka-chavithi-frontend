@@ -87,7 +87,7 @@ export default function DonationTable({ donations, loading, onEdit, onDelete, se
             </ul>
             <br/>
             <strong>Website:</strong><br/>
-            http://localhost:5173/
+            https://vinayaka-chavithi-frontend-2bfndry1j-prasanthsai0987s-projects.vercel.app/
           </div>
         </div>
 
