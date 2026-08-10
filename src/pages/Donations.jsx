@@ -22,10 +22,12 @@ export default function Donations() {
   const [deleteTarget, setDeleteTarget] = useState(null)
   const [stats, setStats] = useState(null)
 
+
   const load = async () => {
     setLoading(true)
     try {
       const data = await fetchDonations(search)
+
       setDonations(data)
     } catch {
       toast.error('Could not load donations')

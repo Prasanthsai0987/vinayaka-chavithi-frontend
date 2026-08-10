@@ -6,26 +6,38 @@ export function formatReadableDate(isoDate) {
 
 export function buildReceiptMessage({ receiptNo, name, amount, status, date }) {
   const statusLabel = status === 'paid' ? 'Paid' : 'Unpaid'
+
   return [
-    '🙏 Vinayaka Chavithi Donations',
+    '🙏 *Vinayaka Chavithi Donations*',
     '',
-    `Receipt No: ${receiptNo}`,
+    `🧾 *Receipt No:* ${receiptNo}`,
     '',
-    'Name:',
-    name,
+    `👤 *Name:* ${name}`,
     '',
-    'Amount:',
-    `₹${Number(amount).toLocaleString('en-IN')}`,
+    `💰 *Amount:* ₹${Number(amount).toLocaleString('en-IN')}`,
     '',
-    'Payment Status:',
-    statusLabel,
+    `✅ *Payment Status:* ${statusLabel}`,
     '',
-    'Date:',
-    formatReadableDate(date),
+    `📅 *Date:* ${formatReadableDate(date)}`,
     '',
-    'Thank you for supporting Vinayaka Chavithi.',
+    '🙏 Thank you for supporting *Vinayaka Chavithi*.',
+    'Ganapathi Bappa Morya! 🙏',
     '',
-    'Ganapathi Bappa Morya 🙏',
+    '━━━━━━━━━━━━━━━━━━━━',
+    '🌐 *Vinayaka Chavithi Festival Website*',
+    '',
+    'Stay connected with us!',
+    'Visit our website to view:',
+    '• 📸 Festival Photos',
+    '• 🎉 Event Schedule',
+    '• 💝 Donation Details',
+    '• 📢 Festival Updates',
+    '',
+    '• VasaviNagar Podalakur, Nellore District, Andhra Pradesh, India',
+    '',
+    
+    '🔗 Click the link below:',
+    'http://localhost:5173/',
   ].join('\n')
 }
 

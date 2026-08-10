@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Save, MessageCircleMore, Eraser, User, Phone, MapPin, IndianRupee, StickyNote } from 'lucide-react'
+import {
+  Save,
+  MessageCircleMore,
+  Eraser,
+  User,
+  UserCheck,
+  Phone,
+  MapPin,
+  IndianRupee,
+  StickyNote
+} from 'lucide-react'
 import toast from 'react-hot-toast'
 import { buildReceiptMessage, openWhatsApp } from '../utils/whatsapp.js'
 
@@ -8,6 +18,7 @@ const EMPTY_FORM = {
   name: '',
   phone: '',
   village: '',
+  volunteer_name: '',
   amount: '',
   payment_status: 'unpaid',
   donation_date: new Date().toISOString().slice(0, 10),
@@ -28,6 +39,7 @@ export default function DonationForm({ editingDonation, onSave, onClearEdit }) {
         payment_status: editingDonation.payment_status,
         donation_date: editingDonation.donation_date,
         notes: editingDonation.notes || '',
+        volunteer_name: editingDonation.volunteer_name || '',
       })
     }
   }, [editingDonation])
@@ -86,15 +98,19 @@ export default function DonationForm({ editingDonation, onSave, onClearEdit }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Field icon={User} label="Full Name">
-          <input value={form.name} onChange={update('name')} placeholder="e.g. Ramesh Kumar" className="input" />
+          <input value={form.name} onChange={update('name')} placeholder="e.g. prasanth sai" className="input" />
         </Field>
 
         <Field icon={Phone} label="Phone Number">
-          <input value={form.phone} onChange={update('phone')} placeholder="e.g. 919876543210" className="input" />
+          <input value={form.phone} onChange={update('phone')} placeholder="" className="input" />
         </Field>
 
         <Field icon={MapPin} label="Village / Area">
           <input value={form.village} onChange={update('village')} placeholder="e.g. Gandhi Nagar" className="input" />
+        </Field>
+
+        <Field icon={UserCheck} label="Volunteer Name">
+          <input value={form.volunteer_name} onChange={update('volunteer_name')} placeholder="e.g. prasant sai" className="input" />
         </Field>
 
         <Field icon={IndianRupee} label="Donation Amount (₹)">

@@ -73,13 +73,35 @@ export default function DonationTable({ donations, loading, onEdit, onDelete, se
           <div class="row"><div class="label">Amount</div><div class="value">₹${Number(d.amount).toLocaleString('en-IN')}</div></div>
           <div class="row"><div class="label">Status</div><div class="value">${d.payment_status === 'paid' ? 'Paid' : 'Unpaid'}</div></div>
           <div class="row"><div class="label">Date</div><div class="value">${d.donation_date}</div></div>
-          <div class="footer">Thank you for supporting Vinayaka Chavithi.<br/>Ganapathi Bappa Morya 🙏</div>
+          <div class="row">
+          <div class="label">Visit Our Website</div>
+          <div class="value" style="font-size:14px; line-height:1.6;">
+            Stay connected with our Vinayaka Chavithi celebrations.
+            <br/><br/>
+            Visit our website to view:
+            <ul style="margin:8px 0 0 18px; padding:0;">
+              <li>📅 Festival Updates</li>
+              <li>🎉 Event Schedule</li>
+              <li>🖼️ Photo Gallery</li>
+              <li>💝 Donation Details</li>
+            </ul>
+            <br/>
+            <strong>Website:</strong><br/>
+            http://localhost:5173/
+          </div>
+        </div>
+
+        <div class="footer">
+          Thank you for supporting Vinayaka Chavithi.
+          <br/>
+          Ganapathi Bappa Morya 🙏
+        </div>
         </body>
       </html>
     `)
     win.document.close()
     win.print()
-  }
+    }
 
   const handleWhatsApp = (d) => {
     const message = buildReceiptMessage({
@@ -136,6 +158,7 @@ export default function DonationTable({ donations, loading, onEdit, onDelete, se
               <Th label="Name" sortKey="name" active={sortKey} dir={sortDir} onClick={toggleSort} />
               <th className="px-4 py-3 font-semibold">Phone</th>
               <th className="px-4 py-3 font-semibold">Village</th>
+              <th className="px-4 py-3 font-semibold">Volunteer</th>
               <Th label="Amount" sortKey="amount" active={sortKey} dir={sortDir} onClick={toggleSort} />
               <th className="px-4 py-3 font-semibold">Status</th>
               <Th label="Date" sortKey="donation_date" active={sortKey} dir={sortDir} onClick={toggleSort} />
@@ -164,6 +187,7 @@ export default function DonationTable({ donations, loading, onEdit, onDelete, se
                   <td className="px-4 py-3 font-medium text-stone-800 dark:text-white">{d.name}</td>
                   <td className="px-4 py-3 text-stone-600 dark:text-stone-300">{d.phone}</td>
                   <td className="px-4 py-3 text-stone-600 dark:text-stone-300">{d.village || '—'}</td>
+                  <td className="px-4 py-3 text-stone-600 dark:text-stone-300">{d.volunteer_name || '—'}</td>
                   <td className="px-4 py-3 font-semibold text-stone-800 dark:text-white">
                     ₹{Number(d.amount).toLocaleString('en-IN')}
                   </td>
@@ -231,6 +255,7 @@ export default function DonationTable({ donations, loading, onEdit, onDelete, se
   )
 }
 
+
 function Th({ label, sortKey, active, dir, onClick }) {
   return (
     <th
@@ -246,6 +271,7 @@ function Th({ label, sortKey, active, dir, onClick }) {
 }
 
 function IconBtn({ children, onClick, title, danger, success }) {
+  
   return (
     <button
       onClick={onClick}

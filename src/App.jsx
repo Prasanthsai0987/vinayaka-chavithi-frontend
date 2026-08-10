@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Toaster } from 'react-hot-toast'
@@ -9,6 +10,7 @@ import Gallery from './pages/Gallery.jsx'
 import Volunteers from './pages/Volunteers.jsx'
 import AboutFestival from './pages/AboutFestival.jsx'
 import AccessGate from './components/AccessGate.jsx'
+import SplashScreen from './components/IntroSplash.jsx'
 
 function PageWrapper({ children }) {
   return (
@@ -25,6 +27,15 @@ function PageWrapper({ children }) {
 
 export default function App() {
   const location = useLocation()
+  const [showSplash, setShowSplash] = useState(true)
+
+  if (showSplash) {
+    return (
+      <SplashScreen
+        onFinish={() => setShowSplash(false)}
+      />
+    )
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -40,6 +51,7 @@ export default function App() {
       <main className="flex-1">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
+
             <Route path="/" element={<PageWrapper><Landing /></PageWrapper>} />
             <Route path="/donations" element={<PageWrapper><AccessGate><Donations /></AccessGate></PageWrapper>} />
             <Route path="/events" element={<PageWrapper><Events /></PageWrapper>} />

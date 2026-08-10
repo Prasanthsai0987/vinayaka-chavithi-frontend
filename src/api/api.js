@@ -3,41 +3,56 @@
 
 const BASE_URL = import.meta.env.VITE_API_URL 
 
+
 // ---------------------------------------------------------------------------
 // Donations
 // ---------------------------------------------------------------------------
 export async function fetchDonations(search = '') {
+  console.log("fetchDonations called", search)
+
   const url = new URL(`${BASE_URL}/donations`)
   if (search) url.searchParams.set('search', search)
+
   const res = await fetch(url)
-  if (!res.ok) throw new Error('Failed to fetch donations')
-  return res.json()
-}
 
+  const data = await handle(res, 'Failed to fetch donations')
+
+  return data
+}
+ 
 export async function createDonation(payload) {
-  const res = await fetch(`${BASE_URL}/donations`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  if (!res.ok) throw new Error('Failed to save donation')
-  return res.json()
-}
 
+  const res = await fetch(`${BASE_URL}/donations`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+
+  const text = await res.text();
+
+
+  if (!res.ok) {
+    throw new Error(text);
+  }
+
+  return JSON.parse(text);
+}
+ 
 export async function updateDonation(id, payload) {
   const res = await fetch(`${BASE_URL}/donations/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   })
-  if (!res.ok) throw new Error('Failed to update donation')
-  return res.json()
+  return handle(res, 'Failed to update donation')
 }
-
+ 
 export async function deleteDonation(id) {
   const res = await fetch(`${BASE_URL}/donations/${id}`, { method: 'DELETE' })
-  if (!res.ok) throw new Error('Failed to delete donation')
-  return res.json()
+  return handle(res, 'Failed to delete donation')
 }
 
 // ---------------------------------------------------------------------------
@@ -106,4 +121,14 @@ export async function fetchStats() {
   const res = await fetch(`${BASE_URL}/stats`)
   if (!res.ok) throw new Error('Failed to fetch stats')
   return res.json()
+}
+
+async function handle(res, msg) {
+  if (!res.ok) {
+    const error = await res.text()
+    console.error("API ERROR:", error)
+    throw new Error(msg)
+  }
+
+  return await res.json()
 }

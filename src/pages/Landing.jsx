@@ -6,6 +6,7 @@ import DashboardCarousel from '../components/DashboardCarousel.jsx'
 import StatCard from '../components/StatCard.jsx'
 import AdminGrid from '../components/AdminGrid.jsx'
 import { fetchStats } from '../api/api.js'
+import vinayaka from "../images/vinayaka.jpg";
 
 export default function Landing() {
   const [stats, setStats] = useState(null)
@@ -33,9 +34,9 @@ export default function Landing() {
               🕉️ Ganapathi Bappa Morya
             </span>
             <h1 className="text-4xl sm:text-6xl font-display font-extrabold leading-tight mb-5">
-              Vinayaka Chavithi
+              VINAYAKA YOUTH
               <br />
-              <span className="text-gold-400">Committee Hub</span>
+              <span className="text-gold-400">VASAVI NAGAR PODALAKUR</span>
             </h1>
             <p className="text-orange-50/90 text-base sm:text-lg max-w-xl mb-8">
               One place for the committee to manage donations, plan events, share the gallery and keep every
@@ -98,7 +99,7 @@ export default function Landing() {
           </div>
           <div className="rounded-2xl overflow-hidden shadow-card">
             <img
-              src="https://images.unsplash.com/photo-1610116306796-6fea9f4fac59?w=900&q=80"
+              src={vinayaka}
               alt="Ganesh idol decorated for Vinayaka Chavithi"
               className="w-full h-64 object-cover"
             />
