@@ -20,7 +20,7 @@ export function buildReceiptMessage({ receiptNo, name, amount, status, date }) {
     '',
     `📅 *Date:* ${formatReadableDate(date)}`,
     '',
-    '🙏 Thank you for supporting *Vinayaka Chavithi*.',
+    '🙏 Thank you for supporting Vinayaka youth , Vasavi nagar*.',
     'Ganapathi Bappa Morya! 🙏',
     '',
     '━━━━━━━━━━━━━━━━━━━━',
