@@ -37,7 +37,7 @@ export function buildReceiptMessage({ receiptNo, name, amount, status, date }) {
     '',
     
     '🔗 Click the link below:',
-    'https://vinayaka-chavithi-frontend-2bfndry1j-prasanthsai0987s-projects.vercel.app/',
+    'vinayaka-chavithi-frontend.vercel.app',
   ].join('\n')
 }
 
